@@ -42,8 +42,8 @@ export default function Home() {
                     }}
                 >
                     <Welcome />
-                    <Nearbyjobs />
                     <Popularjobs />
+                    <Nearbyjobs />
                     
                 </View>
             </ScrollView>
