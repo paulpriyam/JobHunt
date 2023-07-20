@@ -17,30 +17,35 @@ import useFetch from '../../../hook/useFetch';
 
 const jobs = [
   {
+    id: 1,
     imageUrl: icons.amazon,
     companyName: "Amazon Inc",
     jobTitle: "SDE-1",
     location: "Bangalore",
   },
   {
+    id: 2,
     imageUrl: icons.apple,
     companyName: "Apple",
     jobTitle: "Project Manager",
     location: "Hyderabd",
   },
   {
+    id: 3,
     imageUrl: icons.google,
     companyName: "Google",
     jobTitle: "SDET-1",
     location: "US",
   },
   {
+    id: 4,
     imageUrl: icons.microsoft,
     companyName: "Microsoft Corporation",
     jobTitle: "Software Engineer",
     location: "Bangalore",
   },
   {
+    id: 5,
     imageUrl: icons.slack,
     companyName: "Slack Inc",
     jobTitle: "Backend Engineer",
@@ -90,11 +95,12 @@ const Popularjobs = () => {
           <FlatList
             data={jobs}
             horizontal
-            contentContainerStyle={{columnGap:SIZES.small}}
+                  contentContainerStyle={{ columnGap: SIZES.small }}
+                  keyExtractor={item => item.id}
             renderItem={({ item }) => (
               <TouchableOpacity
                 onPress={() => {
-                  
+                  router.push(`/job_details/${item.id}`)
                 }}>
                 <View
                   style={styles.card}
