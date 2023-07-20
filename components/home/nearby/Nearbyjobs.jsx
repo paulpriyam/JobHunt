@@ -3,7 +3,7 @@ import { View, Text, FlatList, TouchableOpacity, Image, ScrollView } from "react
 
 import styles from './nearbyjobs.style'
 import { useRouter } from 'expo-router';
-import { icons } from '../../../constants'
+import { icons, SIZES } from '../../../constants'
 
 const nearByJobs = [
   {
@@ -43,15 +43,22 @@ const Nearbyjobs = () => {
   let router = useRouter();
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Nearby Jobs</Text>
-        <TouchableOpacity onPress={() => {}}>
-          <Text style={styles.headerBtn}>Show All</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.cardsContainer}>
+  
+      
         <FlatList
+      ListHeaderComponent=
+      {
+        <View style={ styles.container}>
+              <View style={styles.header}>
+                <Text style={styles.headerTitle}>Nearby Jobs</Text>
+                <TouchableOpacity onPress={() => {}}>
+                  <Text style={styles.headerBtn}>Show All</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          }
+      contentContainerStyle={{ rowGap: SIZES.small }}
+      ListFooterComponent={<></>}
           data={nearByJobs}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => {}}>
@@ -67,8 +74,7 @@ const Nearbyjobs = () => {
             </TouchableOpacity>
           )}
         ></FlatList>
-      </View>
-    </ScrollView>
+     
   );
 }
 
