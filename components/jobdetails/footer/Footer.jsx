@@ -1,10 +1,10 @@
 import React from 'react'
-import { View, Text , TouchableOpacity, Image} from 'react-native'
+import { View, Text , TouchableOpacity, Image, Linking} from 'react-native'
 
 import styles from './footer.style'
 import { icons } from '../../../constants'
 
-const Footer = ({ redirectionUrl}) => {
+const Footer = ({ url}) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -20,9 +20,7 @@ const Footer = ({ redirectionUrl}) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.applyBtn}
-        onPress={() => {
-        
-      }}
+        onPress={() => Linking.openURL(url)}
       >
         <Text style={ styles.applyBtnText}>Apply for Job</Text>
       </TouchableOpacity>
